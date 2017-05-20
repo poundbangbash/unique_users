@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Remove user_sessions script
-rm -f "${MUNKIPATH}preflight.d/user_sessions.py"
+rm -f "${MUNKIPATH}preflight.d/unique_users.py"
 
 # Remove network_shares.plist file
-rm -f "${CACHEPATH}user_sessions.plist"
+rm -f "${CACHEPATH}unique_users.plist"

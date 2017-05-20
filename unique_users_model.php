@@ -3,7 +3,7 @@ class Unique_users_model extends Model {
 
 	function __construct($serial='')
 	{
-		parent::__construct('id', 'user_sessions'); //primary key, tablename
+		parent::__construct('id', 'unique_users'); //primary key, tablename
 		$this->rs['id'] = '';
 		$this->rs['serial_number'] = $serial;
 		$this->rs['user'] = '';

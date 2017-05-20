@@ -106,7 +106,7 @@ def main():
     result = fast_last()
 
     # Write user session results to cache
-    output_plist = os.path.join(cachedir, 'user_sessions.plist')
+    output_plist = os.path.join(cachedir, 'unique_users.plist')
     plistlib.writePlist(result, output_plist)
 
 

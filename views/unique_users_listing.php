@@ -17,7 +17,7 @@ new Unique_users_model;
 		      <tr>
 		      	<th data-i18n="listing.computername" data-colname='machine.computer_name'></th>
 		      	<th data-i18n="serial" data-colname='reportdata.serial_number'></th>
-		      	<th data-i18n="username" data-colname='user_sessions.user'></th>
+		      	<th data-i18n="username" data-colname='unique_users.user'></th>
 		      </tr>
 		    </thead>
 		    <tbody>
@@ -80,7 +80,7 @@ new Unique_users_model;
 	        	var name=$('td:eq(0)', nRow).html();
 	        	if(name == ''){name = "No Name"};
 	        	var sn=$('td:eq(1)', nRow).html();
-	        	var link = mr.getClientDetailLink(name, sn, '#tab_user_sessions-tab');
+	        	var link = mr.getClientDetailLink(name, sn, '#tab_unique_users-tab');
 	        	$('td:eq(0)', nRow).html(link);
                 
 		    }

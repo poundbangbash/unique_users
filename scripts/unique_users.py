@@ -81,7 +81,11 @@ def fast_last(session='gui_ssh'):
         entry = getutxent_wtmp()
         event = {}
         if (e.ut_type == USER_PROCESS) or (e.ut_type == DEAD_PROCESS):
-            event = {'user': e.ut_user}
+            # filter out system account _mdsetupuser
+            if (e.ut_user == "_mbsetupuser"):
+                continue
+            else:
+                event = {'user': e.ut_user}
         if event != {}:
             events.append(event)
     # finish

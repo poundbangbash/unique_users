@@ -1,4 +1,6 @@
 {
+    "currentuser": "Current User",
     "unique_users": "Unique Users",
+    "username": "Username",
     "reporttitle": "Unique Users Report"
 }

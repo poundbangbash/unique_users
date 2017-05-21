@@ -2,9 +2,9 @@
 
 return array(
     'client_tabs' => array(
-        'unique_users-tab' => array('view' => 'unique_users_tab', 'i18n' => 'unique_users.unique_users'),
+        'user_logins-tab' => array('view' => 'user_logins_tab', 'i18n' => 'user_logins.user_logins'),
     ),
     'listings' => array(
-        'unique_users' => array('view' => 'unique_users_listing', 'i18n' => 'unique_users.unique_users'),
+        'user_logins' => array('view' => 'user_logins_listing', 'i18n' => 'user_logins.user_logins'),
     ),
 );

@@ -1,9 +1,9 @@
 <?php
-class Unique_users_model extends Model {
+class User_logins_model extends Model {
 
 	function __construct($serial='')
 	{
-		parent::__construct('id', 'unique_users'); //primary key, tablename
+		parent::__construct('id', 'user_logins'); //primary key, tablename
 		$this->rs['id'] = '';
 		$this->rs['serial_number'] = $serial;
 		$this->rs['user'] = '';
@@ -45,8 +45,10 @@ class Unique_users_model extends Model {
 		
 		foreach ($myList as $event) {
 			foreach ($typeList as $key => $username) {
+			    // Keep historical logins so only replace if it already exists
                 $this->deleteWhere('serial_number=? AND user=?', array($this->serial_number, $this->user));
-                if($this->user != null){
+                    
+                if($this->user != null){ // Make sure there is a username to save
                     $this->id = '';
                     $this->save();
                 }
@@ -59,6 +61,7 @@ class Unique_users_model extends Model {
 				}
 
 			}
+		// Keep historical logins so only replace if it already exists
 		$this->deleteWhere('serial_number=? AND user=?', array($this->serial_number, $this->user));
 		$this->id = '';
 		$this->save();

@@ -4,21 +4,21 @@
 //Initialize models needed for the table
 new Machine_model;
 new Reportdata_model;
-new Unique_users_model;
+new User_logins_model;
 ?>
 
 <div class="container">
   <div class="row">
   	<div class="col-lg-12">
-		  <h3><span data-i18n="unique_users.reporttitle"></span> <span id="total-count" class='label label-primary'>…</span></h3>
+		  <h3><span data-i18n="user_logins.reporttitle"></span> <span id="total-count" class='label label-primary'>…</span></h3>
 
 		  <table class="table table-striped table-condensed table-bordered">
 		    <thead>
 		      <tr>
 		      	<th data-i18n="listing.computername" data-colname='machine.computer_name'></th>
 		      	<th data-i18n="serial" data-colname='reportdata.serial_number'></th>
-		      	<th data-i18n="unique_users.currentuser" data-colname='reportdata.console_user'></th>
-		      	<th data-i18n="unique_users.username" data-colname='unique_users.user'></th>
+		      	<th data-i18n="user_logins.currentuser" data-colname='reportdata.console_user'></th>
+		      	<th data-i18n="user_logins.username" data-colname='user_logins.user'></th>
 		      </tr>
 		    </thead>
 		    <tbody>
@@ -81,7 +81,7 @@ new Unique_users_model;
 	        	var name=$('td:eq(0)', nRow).html();
 	        	if(name == ''){name = "No Name"};
 	        	var sn=$('td:eq(1)', nRow).html();
-	        	var link = mr.getClientDetailLink(name, sn, '#tab_unique_users-tab');
+	        	var link = mr.getClientDetailLink(name, sn, '#tab_user_logins-tab');
 	        	$('td:eq(0)', nRow).html(link);
                 
 		    }

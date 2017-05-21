@@ -1,12 +1,12 @@
 <?php 
 
 /**
- * user_sessions module class
+ * user_logins module class
  *
  * @package munkireport
  * @author eholtam
  **/
-class Unique_users_controller extends Module_controller
+class User_logins_controller extends Module_controller
 {
 	
 	/*** Protect methods with auth! ****/
@@ -23,7 +23,7 @@ class Unique_users_controller extends Module_controller
 	 **/
 	function index()
 	{
-		echo "You've loaded the unique_users module!";
+		echo "You've loaded the user_logins module!";
 	}
     
 	/**
@@ -39,13 +39,13 @@ class Unique_users_controller extends Module_controller
             return;
         }
 
-        $queryobj = new Unique_users_model;
-        $unique_users_tab = array();
+        $queryobj = new user_logins_model;
+        $user_logins_tab = array();
         foreach($queryobj->retrieve_records($serial_number) as $shareEntry) {
-            $unique_users_tab[] = $shareEntry->rs;
+            $user_logins_tab[] = $shareEntry->rs;
         }
 
-        $obj->view('json', array('msg' => $unique_users_tab));
+        $obj->view('json', array('msg' => $user_logins_tab));
      }
 		
-} // END class User_sessionss_controller
+} // END class User_logins_controller

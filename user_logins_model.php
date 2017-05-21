@@ -1,9 +1,9 @@
 <?php
-class Unique_users_model extends Model {
+class User_logins_model extends Model {
 
 	function __construct($serial='')
 	{
-		parent::__construct('id', 'unique_users'); //primary key, tablename
+		parent::__construct('id', 'user_logins'); //primary key, tablename
 		$this->rs['id'] = '';
 		$this->rs['serial_number'] = $serial;
 		$this->rs['user'] = '';

@@ -4,7 +4,8 @@ Parse user sessions on macOS so we can determine what users logged in and
 when the event took place. We only obtain 'console' and 'ssh' sessions as
 regular 'ttys' sessions are less useful as a whole.
 
-Author: Clayton Burlison - https://clburlison.com
+Original Author: Clayton Burlison - https://clburlison.com
+Adapatations for User Logins: Eric Holtam - https://osxbytes.wordpress.com, @eholtam on Slack & Twitter
 
 Code from: Michael Lynn -
     https://gist.github.com/pudquick/7fa89716fe2a8f6cdc084958671b7b58
@@ -90,8 +91,8 @@ def fast_last(session='gui_ssh'):
             events.append(event)
     # finish
     endutxent_wtmp()
-    unique_users =  {v['user']:v for v in events}.values()
-    return unique_users
+    user_logins =  {v['user']:v for v in events}.values()
+    return user_logins
     
 def main():
     """Main"""
@@ -110,7 +111,7 @@ def main():
     result = fast_last()
 
     # Write user session results to cache
-    output_plist = os.path.join(cachedir, 'unique_users.plist')
+    output_plist = os.path.join(cachedir, 'user_logins.plist')
     plistlib.writePlist(result, output_plist)
 
 

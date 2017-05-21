@@ -34,9 +34,6 @@ class Unique_users_model extends Model {
 			throw new Exception("Error Processing Request: No property list found", 1);
 		}
 		
-		// Delete previous set        
-		$this->deleteWhere('serial_number=?', $this->serial_number);
-
 		require_once(APP_PATH . 'lib/CFPropertyList/CFPropertyList.php');
 		$parser = new CFPropertyList();
 		$parser->parse($plist, CFPropertyList::FORMAT_XML);
@@ -47,19 +44,24 @@ class Unique_users_model extends Model {
 		);
 		
 		foreach ($myList as $event) {
-			foreach ($typeList as $key => $value) {
-                
-				$this->rs[$key] = $value;
-                
+			foreach ($typeList as $key => $username) {
+                $this->deleteWhere('serial_number=? AND user=?', array($this->serial_number, $this->user));
+                if($this->user != null){
+                    $this->id = '';
+                    $this->save();
+                }
+
+				$this->rs[$key] = $username;
+
 				if(array_key_exists($key, $event))
 				{
 					$this->rs[$key] = $event[$key];
-				}                
+				}
+
 			}
-                                        
-			// Save user session event
-			$this->id = '';
-			$this->save();
+		$this->deleteWhere('serial_number=? AND user=?', array($this->serial_number, $this->user));
+		$this->id = '';
+		$this->save();
 		}
 	}
 }

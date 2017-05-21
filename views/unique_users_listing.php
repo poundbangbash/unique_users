@@ -17,7 +17,7 @@ new Unique_users_model;
 		      <tr>
 		      	<th data-i18n="listing.computername" data-colname='machine.computer_name'></th>
 		      	<th data-i18n="serial" data-colname='reportdata.serial_number'></th>
-		      	<th data-i18n="unique_user.currentuser" data-colname='reportdata.console_user'></th>
+		      	<th data-i18n="unique_users.currentuser" data-colname='reportdata.console_user'></th>
 		      	<th data-i18n="unique_users.username" data-colname='unique_users.user'></th>
 		      </tr>
 		    </thead>
